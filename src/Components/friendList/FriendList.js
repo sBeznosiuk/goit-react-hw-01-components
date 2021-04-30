@@ -1,4 +1,4 @@
-//
+import React from 'react';
 
 const FriendList = ({ friends }) => (
   <ul className="friend-list">
