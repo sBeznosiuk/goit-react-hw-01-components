@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const TransactionHistory = ({ items }) => (
   <table className="transaction-history">
@@ -12,7 +12,7 @@ const TransactionHistory = ({ items }) => (
     </thead>
 
     <tbody>
-      {items.map((item) => (
+      {items.map(item => (
         <tr key={item.id}>
           <td>{item.type}</td>
           <td>{item.amount}</td>
@@ -24,12 +24,14 @@ const TransactionHistory = ({ items }) => (
 );
 
 TransactionHistory.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        amount: PropTypes.string.isRequired,
-        currency: PropTypes.string.isRequired
-    }))
-}
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    }),
+  ),
+};
 
 export default TransactionHistory;
