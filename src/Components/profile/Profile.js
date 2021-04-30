@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import preview from "./social-profile/preview.png";
+import {Wrapper,Avatar} from "./styles";
 
 const Profile = ({ name, tag, location, avatar, stats }) => {
   return (
     <div className="profile">
-      <div className="description">
-        <img
+      <Wrapper className="description">
+        <Avatar
           src={avatar}
           alt="Аватар пользователя"
           className="avatar"
@@ -16,7 +17,7 @@ const Profile = ({ name, tag, location, avatar, stats }) => {
         <p className="tag">{`@${tag}`}</p>
         <p className="location">{location}</p>
         {renderStats(stats)}
-      </div>
+      </Wrapper>
     </div>
   );
 };
