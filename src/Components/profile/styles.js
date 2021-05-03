@@ -13,6 +13,7 @@ color: red;
 
 const Avatar = styled.img`
 border-radius: 50%;
+margin-top: 70px;
 `
 
 
