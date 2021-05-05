@@ -16,6 +16,12 @@ border-radius: 50%;
 margin-top: 70px;
 `
 
+const Label = styled.span`
+margin-right: 20px;
+`
 
-export  {Wrapper,Avatar}
+
+export { Wrapper, Avatar, Label }
+
+
  

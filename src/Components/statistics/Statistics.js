@@ -1,55 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Item, List, Section } from './StatisticsStyles'
 
 const randomColor = () => Math.floor(Math.random() * 16777215).toString(16);
 
-const styles = {
-  section: {
-    display: 'flex',
-    color: 'black',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-
-  list: {
-    margin: 0,
-    padding: 0,
-    listStyle: 'none',
-    display: 'flex',
-    borderRight: '2px solid black',
-    borderLeft: '2px solid black',
-  },
-
-  item: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 80,
-    height: 80,
-    marginBottom: 0,
-  },
-};
 
 const Statistics = ({ title, stats }) => (
-  <section className="statistics" style={styles.section}>
+  <Section className="statistics">
     {title && <h2 className="title">{title}</h2>}
-    <ul className="stat-list" style={styles.list}>
-      {stats.map(item => (
-        <li
+    <List className="stat-list">
+      {stats.map(({id, label, percentage}) => (
+        <Item
           className="item"
-          key={item.id}
+          key={id}
           style={{
-            ...styles.item,
             backgroundColor: '#' + randomColor(),
           }}
         >
-          <span className="label">{item.label}</span>
-          <span className="percentage">{item.percentage + '%'}</span>
-        </li>
+          <span className="label">{label}</span>
+          <span className="percentage">{percentage + '%'}</span>
+        </Item>
       ))}
-    </ul>
-  </section>
+    </List>
+  </Section>
 );
 
 Statistics.defaultProps = {
@@ -63,7 +36,7 @@ Statistics.propTypes = {
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       percentage: PropTypes.number.isRequired,
-    }),
+    }).isRequired,
   ),
 };
 
