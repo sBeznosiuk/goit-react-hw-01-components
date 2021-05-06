@@ -4,7 +4,7 @@ import preview from "./social-profile/preview.png";
 import { Wrapper, Avatar } from "./ProfileStyles";
 import Stats from "./Stats";
 
-const Profile = ({ name, tag, location, avatar, stats }) => {
+const Profile = ({ name, tag, location, avatar,  stats: { followers, views, likes }  }) => {
   return (
     <div className="profile">
       <Wrapper className="description">
@@ -18,9 +18,9 @@ const Profile = ({ name, tag, location, avatar, stats }) => {
         <p className="tag">{`@${tag}`}</p>
         <p className="location">{location}</p>
         <Stats
-          followers={stats.followers}
-          views={stats.views}
-          likes={stats.likes}
+          followers={followers}
+          views={views}
+          likes={likes}
         />
       </Wrapper>
     </div>
@@ -36,7 +36,7 @@ Profile.propTypes = {
   tag: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   avatar: PropTypes.string,
-  stats: PropTypes.objectOf(PropTypes.number.isRequired).isRequired,
+  stats: PropTypes.object.isRequired
 };
 
 export default Profile;

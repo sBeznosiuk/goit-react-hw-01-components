@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from "prop-types";
 import { Label } from './ProfileStyles'
 
 const Stats = ({followers, views, likes}) => (
@@ -17,5 +18,11 @@ const Stats = ({followers, views, likes}) => (
         </li>
 </ul>
 )
+
+Stats.propTypes = {
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+}
 
 export default Stats
